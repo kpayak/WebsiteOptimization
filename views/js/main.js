@@ -501,10 +501,16 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
+  //Move scrollTop outside of loop - Keyur
+  var phase;
+  var left;
+  var top = document.body.scrollTop / 1250;
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    phase = Math.sin(top) + (i % 5);
+    left = items[i].basicLeft + 100 * phase + 'px';
+    //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    items[i].style.transform = "translateX("+left+")";
   }
 
   // User Timing API to the rescue again. Seriously, it's worth learning.
@@ -524,15 +530,20 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  var movingPizzas = document.querySelector("#movingPizzas1");
+  for (var i = 0; i < 100; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
-    elem.src = "img/pizza.png";
-    elem.style.height = "100px";
-    elem.style.width = "73.333px";
+    elem.src = "img/pizza-scroll.png";
+
+    // Move static properties to CSS
+    /* elem.style.height = "100px";
+    elem.style.width = "73.333px"; */
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.querySelector("#movingPizzas1").appendChild(elem);
+    movingPizzas.appendChild(elem);
   }
-  updatePositions();
+
+  //Remove updatePositions() call on DOM loading as this seems like an unneccesary call - Keyur
+  //updatePositions();
 });
