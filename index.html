@@ -11,7 +11,24 @@
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
     <!--<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">-->
 
+
     <style>
+        /* open-sans-regular - latin */
+        
+        @font-face {
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url('../fonts/open-sans-v13-latin-regular.eot');
+            /* IE9 Compat Modes */
+            src: local('Open Sans'), local('OpenSans'), url('../fonts/open-sans-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('../fonts/open-sans-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+            url('../fonts/open-sans-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+            url('../fonts/open-sans-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+            url('../fonts/open-sans-v13-latin-regular.svg#OpenSans') format('svg');
+            /* Legacy iOS */
+        }
+        
         html {
             font-size: 100%;
             overflow-y: scroll;
@@ -156,7 +173,7 @@
         }
     </style>
 
-    <link href="css/print.css" rel="stylesheet" media="print">
+    <link href="css/print.min.css" rel="stylesheet" media="print">
 
     <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
@@ -196,7 +213,7 @@
 
                 <li>
                     <img style="width: 100px;" src="img/pizzeria-min.jpg">
-                    <a href="views/pizza.html">Cam's Pizzeria</a>
+                    <a href="pizza.html">Cam's Pizzeria</a>
                     <p>Who wants a performant pizza?</p>
                 </li>
             </ul>
