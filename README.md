@@ -60,5 +60,5 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 3. Add gulp buiding
 4. use local fonts
 https://google-webfonts-helper.herokuapp.com/fonts/open-sans?subsets=latin
-5. O
+5. O moved lot of static properties to CSS
 
