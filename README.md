@@ -3,8 +3,8 @@
 Following objectives are met in this project: 
 
 1. Optimize CRP of index.html to get Page speed insight score of 94 (mobile) and 95(desktop).
-2. Optimize scrolling of pizza.html so that frame rate is at least 60fps. 
-3. Optimize pizza resizing to bring time under < 5ms. 
+2. Optimize scrolling of pizza.html so that frame rate is at least 60fps. Average time for 10 frames ~ 2ms.
+3. Optimize pizza resizing to bring time under < 5ms. Average time to resize < 2ms.
 4. Use 'Gulp' build tool to minify html, css and JS. 
 5. Compress images used througout the website to improve frame rate and initial load time.
 
