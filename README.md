@@ -13,18 +13,18 @@ Following objectives are met in this project:
 
    ```bash
   $> cd /path/to/your-project-folder
-  $> python -m SimpleHTTPServer 8080
+  $> gulp
   ```
-  
-2. cd /project-folder/
-3. On command line, type 'gulp' (without quotes).
-4. This will run several build commands to minify HTML, CSS and JS. All build files are placed under 'dist' folder. 
-5. cd /<project folder>/dist/
-6. $<project folder>/dist/python -m SimpleHTTPServer 8080
-7. $<project folder>/dist/ngrok http 8080
-8. Use link provided in 'forwarding' section to open in browser.
+2. This will run several build commands to minify HTML, CSS and JS. All build files are placed under 'dist' folder. 
 
-#### Original Project Notes
+  ```bash
+  $> cd /path/to/your-project-folder/dist/
+  $> python -m SimpleHTTPServer 8080
+  $> ./ngrok http 8080
+  ```
+3. Use link provided in 'forwarding' section to open in browser.
+
+## Original Project Notes
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
