@@ -370,7 +370,7 @@ var pizzaElementGenerator = function(i) {
 
   pizzaContainer.classList.add("randomPizzaContainer");
 
-  //moved to CSS - Keyur
+  //Static properties are moved to CSS - Keyur
   //pizzaContainer.style.width = "33.33%";
   //pizzaContainer.style.height = "325px";
   pizzaContainer.id = "pizza" + i;                // gives each pizza element a unique id
@@ -400,6 +400,8 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+
+//Move windowWidth calculation outside of resizePizza(), as this width is never changing.
 var windowWidth = document.getElementById("randomPizzas").offsetWidth;
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
@@ -422,7 +424,7 @@ var resizePizzas = function(size) {
     }
   }
 
-  //
+  //Old method commented out - Keyur
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
   /* function determineDx (elem, size) {
@@ -533,14 +535,16 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  //Move scrollTop outside of loop - Keyur
+  
   var phase;
   var left;
-  var top = document.body.scrollTop / 1250;
+  //Move scrollTop outside of loop as this is not needed to be calculated in the loop.
+  var top = (document.body.scrollTop) / 3000;
   var items = document.querySelectorAll('.mover');
   for (var i = 0; i < items.length; i++) {
-    phase = Math.sin(top) + (i % 5);
-    left = items[i].basicLeft + 100 * phase + 'px';
+    phase = Math.sin(top + (i % 5));
+    left = items[i].basicLeft + 1000 * phase + 'px';
+    //console.log("Left: "+left);
     //items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
     items[i].style.transform = "translateX("+left+")";
   }
@@ -577,5 +581,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   //Remove updatePositions() call on DOM loading as this seems like an unneccesary call - Keyur
-  //updatePositions();
+  updatePositions();
 });
