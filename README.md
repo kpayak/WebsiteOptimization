@@ -10,10 +10,12 @@ Following objectives are met in this project:
 
 ### Steps to get started
 1. Download or Clone this git repository.
+
    ```bash
   $> cd /path/to/your-project-folder
   $> python -m SimpleHTTPServer 8080
   ```
+  
 2. cd /project-folder/
 3. On command line, type 'gulp' (without quotes).
 4. This will run several build commands to minify HTML, CSS and JS. All build files are placed under 'dist' folder. 
