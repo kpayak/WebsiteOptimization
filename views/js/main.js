@@ -304,8 +304,7 @@ function randomName() {
 
 // These functions return a string of a random ingredient from each respective category of ingredients.
 var selectRandomMeat = function() {
-  var randomMeat = pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
-  return randomMeat;
+  return pizzaIngredients.meats[Math.floor((Math.random() * pizzaIngredients.meats.length))];
 };
 
 var selectRandomNonMeat = function() {
@@ -314,18 +313,15 @@ var selectRandomNonMeat = function() {
 };
 
 var selectRandomCheese = function() {
-  var randomCheese = pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
-  return randomCheese;
+  return pizzaIngredients.cheeses[Math.floor((Math.random() * pizzaIngredients.cheeses.length))];
 };
 
 var selectRandomSauce = function() {
-  var randomSauce = pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
-  return randomSauce;
+  return pizzaIngredients.sauces[Math.floor((Math.random() * pizzaIngredients.sauces.length))];
 };
 
 var selectRandomCrust = function() {
-  var randomCrust = pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
-  return randomCrust;
+  return pizzaIngredients.crusts[Math.floor((Math.random() * pizzaIngredients.crusts.length))];
 };
 
 var ingredientItemizer = function(string) {
@@ -404,8 +400,10 @@ var pizzaElementGenerator = function(i) {
 };
 
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
+var windowWidth = document.getElementById("randomPizzas").offsetWidth;
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
+  
 
   // Changes the value for the size of the pizza above the slider
   function changeSliderLabel(size) {
@@ -424,10 +422,10 @@ var resizePizzas = function(size) {
     }
   }
 
-  changeSliderLabel(size);
+  //
 
    // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
+  /* function determineDx (elem, size) {
     var oldWidth = elem.offsetWidth;
     var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
     var oldSize = oldWidth / windowWidth;
@@ -450,17 +448,45 @@ var resizePizzas = function(size) {
     var dx = (newSize - oldSize) * windowWidth;
 
     return dx;
-  }
+  } */
 
   // Iterates through pizza elements on the page and changes their widths
+  /* Comment out old code - Keyur
   function changePizzaSizes(size) {
     for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
       var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
       var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
       document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
     }
+  } */
+
+  function sizeSwitcher (size) {
+      switch(size) {
+        case "1":
+          return 0.25;
+        case "2":
+          return 0.3333;
+        case "3":
+          return 0.5;
+        default:
+          console.log("bug in sizeSwitcher");
+      }
+    }
+
+  
+  // Updated changePizzaSizes() to reduce pizza resize < 5ms
+  
+  var rPC = document.querySelectorAll(".randomPizzaContainer");
+  function changePizzaSizes(size) {
+    var newWidth = sizeSwitcher(size) * windowWidth;  
+    for (var i = 0; i < rPC.length; i++) {
+      //var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
+      //var newwidth = (rPC[i].offsetWidth + dx) + 'px';
+      rPC[i].style.width = newWidth + 'px';
+    }
   }
 
+  changeSliderLabel(size);
   changePizzaSizes(size);
 
   // User Timing API is awesome
@@ -473,8 +499,9 @@ var resizePizzas = function(size) {
 window.performance.mark("mark_start_generating"); // collect timing data
 
 // This for-loop actually creates and appends all of the pizzas when the page loads
+//Moved pizzasDiv out of the loop
+var pizzasDiv = document.getElementById("randomPizzas");
 for (var i = 2; i < 100; i++) {
-  var pizzasDiv = document.getElementById("randomPizzas");
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 
