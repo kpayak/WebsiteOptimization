@@ -1,5 +1,24 @@
 ## Website Performance Optimization portfolio project
 
+Following objectives are met in this project: 
+1. Optimize CRP of index.html to get Page speed insight score of 94 (mobile) and 95(desktop). 
+2. Optimize scrolling of pizza.html so that frame rate is at least 60fps. 
+3. Optimize pizza resizing to bring time under < 5ms. 
+4. Use 'Gulp' build tool to minify html, css and JS. 
+5. Compress images used througout the website to improve frame rate and initial load time.
+
+### Steps to get started
+1. Download or Clone this git repository.
+2. cd /<project folder>/
+3. On command line, type 'gulp' (without quotes).
+4. This will run several build commands to minify HTML, CSS and JS. All build files are placed under 'dist' folder. 
+5. cd /<project folder>/dist/
+6. $<project folder>/dist/python -m SimpleHTTPServer 8080
+7. $<project folder>/dist/ngrok http 8080
+8. Use link provided in 'forwarding' section to open in browser.
+
+#### Original Project Notes
+
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
 
 To get started, check out the repository and inspect the code.

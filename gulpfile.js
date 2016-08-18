@@ -27,7 +27,8 @@ gulp.task('htmlminify', function() {
 gulp.task('compress', function (cb) {
   pump([
         gulp.src(['./js/*.js','./views/js/*.js']),
-        //uglify(),
+        //Comment next line to prevent JS minify
+        uglify(),
         gulp.dest('./dist/js')
     ],
     cb
