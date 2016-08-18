@@ -1,7 +1,8 @@
 ## Website Performance Optimization portfolio project
 
 Following objectives are met in this project: 
-1. Optimize CRP of index.html to get Page speed insight score of 94 (mobile) and 95(desktop). 
+
+1. Optimize CRP of index.html to get Page speed insight score of 94 (mobile) and 95(desktop).
 2. Optimize scrolling of pizza.html so that frame rate is at least 60fps. 
 3. Optimize pizza resizing to bring time under < 5ms. 
 4. Use 'Gulp' build tool to minify html, css and JS. 
@@ -9,7 +10,11 @@ Following objectives are met in this project:
 
 ### Steps to get started
 1. Download or Clone this git repository.
-2. cd /<project folder>/
+   ```bash
+  $> cd /path/to/your-project-folder
+  $> python -m SimpleHTTPServer 8080
+  ```
+2. cd /project-folder/
 3. On command line, type 'gulp' (without quotes).
 4. This will run several build commands to minify HTML, CSS and JS. All build files are placed under 'dist' folder. 
 5. cd /<project folder>/dist/
